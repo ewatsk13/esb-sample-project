@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<include resource="org/springframework/boot/logging/logback/defaults.xml" />
+	<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	
+	<timestamp key="DATE" datePattern="yyyy-MM-dd"/>
+	<property name="CONSOLE_LOG_PATTERN" value="%clr(%d{ISO8601}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr([%15.15t]){faint} %clr([%X{retrievalReferenceId}]){faint} %clr([%X{serviceCode}]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"/>
+	<property name="ROLLING_LOG_PATTERN" value="%clr(%d{ISO8601}){faint} %clr(%5p) %clr(${PID:- }){magenta} %clr([%15.15t]){faint} %clr([%X{retrievalReferenceId}]){faint} %clr([%X{serviceCode}]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wex"/>
+	
+	<!--Daily rolling file appender -->
+	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOG_HOME}/esb-sample-project.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_HOME}/esb-sample-project-%d.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>20mb</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+		<encoder>
+			<pattern>${ROLLING_LOG_PATTERN}</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+		    	<Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+		</layout>
+	</appender>
+
+	<!-- ROOT -->
+	<root level="INFO">
+  		<appender-ref ref="CONSOLE" /> 
+<!--	<appender-ref ref="ROLLING" />-->
+	</root>
+
+</configuration>

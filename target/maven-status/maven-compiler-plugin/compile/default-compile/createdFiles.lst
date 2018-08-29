@@ -1,1 +1,2 @@
-com\esb\sample\project\App.class
+com\esb\sample\project\controller\SampleProjectController.class
+com\esb\sample\project\Application.class
