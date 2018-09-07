@@ -1,2 +1,10 @@
+com\esb\sample\project\constants\ApplicationConstants.class
+com\esb\sample\project\types\validator\AntiSqlInjectionStringValidator.class
 com\esb\sample\project\controller\SampleProjectController.class
+com\esb\sample\project\types\UUIDField.class
+com\esb\sample\project\types\validator\constraints\UuidString.class
+com\esb\sample\project\domain\SampleTable.class
+com\esb\sample\project\types\validator\constraints\AntiSqlInjectionString.class
+com\esb\sample\project\types\validator\UUIDStringValidator.class
+com\esb\sample\project\util\validationUtil.class
 com\esb\sample\project\Application.class
