@@ -20,7 +20,7 @@ public class AntiSqlInjectionStringValidator implements ConstraintValidator<Anti
 		name = constraintAnnotation.name();
 		
 	}
-
+	
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		context.disableDefaultConstraintViolation();
 		try {
@@ -34,9 +34,7 @@ public class AntiSqlInjectionStringValidator implements ConstraintValidator<Anti
 		}catch(Exception e) {
 			LOGGER.error(e.getMessage(), e);
 		}
-		
-		
-		return false;
+		return true;
 	}
 
 }

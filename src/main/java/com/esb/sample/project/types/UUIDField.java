@@ -11,7 +11,7 @@ import lombok.Setter;
 public class UUIDField {
 	
 	@UuidString
-	@AntiSqlInjectionString(name="Id")
+	@AntiSqlInjectionString(name="id")
 	private String id;
 	
 	public UUIDField(String id) {

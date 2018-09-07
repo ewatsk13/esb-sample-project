@@ -1,7 +1,5 @@
 package com.esb.sample.project.types.validator;
 
-import java.util.regex.Pattern;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
@@ -11,16 +9,18 @@ import org.slf4j.LoggerFactory;
 
 import com.esb.sample.project.types.validator.constraints.UuidString;
 
-public class UUIDStringValidator implements ConstraintValidator<UuidString, String>{
+public class UUIDStringValidator implements ConstraintValidator<UuidString, String> {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UUIDStringValidator.class);
-	
 	private static final String UUID_REGEX = "[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}";
+
+
 	
-	public void initialize(UuidString uuid) {
+	public void initialize(UuidString constraintAnnotation) {
 		
 	}
 
+	
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		context.disableDefaultConstraintViolation();
 		try {

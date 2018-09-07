@@ -17,14 +17,14 @@ import javax.validation.Payload;
 import com.esb.sample.project.types.validator.UUIDStringValidator;
 
 @Documented
-@Constraint(validatedBy = {UUIDStringValidator.class})
-@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
+@Constraint(validatedBy = UUIDStringValidator.class)
+@Target({METHOD, FIELD, PARAMETER})
 @Retention(RUNTIME)
 public @interface UuidString {
 
 	String message() default "{com.esb.sample.project.types.validator.constraints.UuidString.message}";
 	
-	Class<?>[] groups() default { };
+	Class<?>[] groups() default {};
 	
-	Class<? extends Payload> [] payload() default { };
+	Class<? extends Payload> [] payload() default {};
 }
